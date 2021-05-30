@@ -1,0 +1,82 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    final String appId = "com.clap.android"
+    final Properties localProps = new Properties()
+    localProps.load(project.rootProject.file('local.properties').newReader())
+
+    compileSdkVersion compile_sdk_version
+    buildToolsVersion build_tool_version
+
+    defaultConfig {
+        applicationId appId
+        minSdkVersion min_sdk_version
+        targetSdkVersion compile_sdk_version
+        versionCode Integer.parseInt(project.VERSION_CODE)
+        versionName "${project.VERSION_NAME}"
+    }
+
+    androidExtensions {
+        experimental = true //kotlin without find view by id
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../keystore.jks")
+            keyAlias localProps.getProperty("key.alias")
+            storePassword localProps.getProperty("key.password")
+            keyPassword localProps.getProperty("key.password")
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+
+    implementation androidCore
+    implementation jetPack
+    implementation thirdParty
+
+    kapt kaptLibraries
+
+    debugImplementation debugImplementationLibraries
+
+    //glide image loader
+    implementation('com.github.bumptech.glide:glide:4.11.0') {
+        exclude group: "com.android.support"
+    }
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:28.0.1')
+}

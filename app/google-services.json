@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "575297415241",
+    "project_id": "clap-d71df",
+    "storage_bucket": "clap-d71df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575297415241:android:333b7a26352299ed267798",
+        "android_client_info": {
+          "package_name": "com.clap.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575297415241-fa5huact0co6vbfbmdbmr2lg8tgpjtr2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfgO6hBDj4bgwkIxapRCUk-hWpJAXGDVA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "575297415241-fa5huact0co6vbfbmdbmr2lg8tgpjtr2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
