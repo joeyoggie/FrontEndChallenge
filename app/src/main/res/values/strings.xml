@@ -2,6 +2,9 @@
     <string name="app_name">Clap</string>
     <string name="title_home">Home</string>
 
+    <string name="title_currencies">Currencies</string>
+    <string name="input_number">Type number to convert</string>
+
     <string name="channel_name" translatable="false">Clap Application</string>
     <string name="channel_description" translatable="false">Clap Application Notification Channel</string>
     <string name="title_activity_splash">FullscreenActivity</string>

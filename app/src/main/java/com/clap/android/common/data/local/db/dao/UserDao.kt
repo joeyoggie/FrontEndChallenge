@@ -1,8 +1,8 @@
-package com.clap.android.common.data.db.dao
+package com.clap.android.common.data.local.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.clap.android.common.data.db.entities.UserEntity
+import com.clap.android.common.data.local.db.entities.UserEntity
 
 @Dao
 interface UserDao {

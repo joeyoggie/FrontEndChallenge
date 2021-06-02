@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_currencies"
+    app:startDestination="@+id/nav_currenciesFragment">
+
+    <fragment
+        android:id="@+id/nav_currenciesFragment"
+        android:name="com.clap.android.features.currency.ui.CurrenciesFragment"
+        android:label="@string/title_currencies"
+        tools:layout="@layout/fragment_currencies" >
+        <action
+            android:id="@+id/action_nav_currenciesFragment_to_convertCurrencyFragment"
+            app:destination="@id/nav_convertCurrencyFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_convertCurrencyFragment"
+        android:name="com.clap.android.features.currency.ui.ConvertCurrencyFragment"
+        android:label="@string/title_currencies"
+        tools:layout="@layout/fragment_convert_currency" >
+        <argument
+            android:name="baseCurrency"
+            app:nullable="true"
+            app:argType="string" />
+        <argument
+            android:name="selectedCurrency"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

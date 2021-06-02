@@ -23,6 +23,7 @@ android {
         targetSdkVersion compile_sdk_version
         versionCode Integer.parseInt(project.VERSION_CODE)
         versionName "${project.VERSION_NAME}"
+        vectorDrawables.useSupportLibrary = true
     }
 
     androidExtensions {
@@ -43,11 +44,18 @@ android {
             signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField("String", "FIXER_BASE_URL", "\"http://data.fixer.io/api/\"")
+            buildConfigField("String", "FIXER_API_KEY", "\"8d06f761311eb7eb0be69469d1b01a24\"")
         }
         debug {
             signingConfig signingConfigs.release
+
+            buildConfigField("String", "FIXER_BASE_URL", "\"http://data.fixer.io/api/\"")
+            buildConfigField("String", "FIXER_API_KEY", "\"8d06f761311eb7eb0be69469d1b01a24\"")
         }
     }
+
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

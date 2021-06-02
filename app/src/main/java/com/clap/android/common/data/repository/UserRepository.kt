@@ -1,9 +1,9 @@
 package com.clap.android.common.data.repository
 
 import androidx.lifecycle.LiveData
-import com.clap.android.common.data.db.AppDatabase
-import com.clap.android.common.data.db.AppPrefs
-import com.clap.android.common.data.db.entities.UserEntity
+import com.clap.android.common.data.local.db.AppDatabase
+import com.clap.android.common.data.local.db.AppPrefs
+import com.clap.android.common.data.local.db.entities.UserEntity
 import javax.inject.Inject
 import javax.inject.Singleton
 

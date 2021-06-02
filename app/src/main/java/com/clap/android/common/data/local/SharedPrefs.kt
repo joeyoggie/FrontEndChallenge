@@ -1,11 +1,9 @@
-package com.clap.android.common.data.db
+package com.clap.android.common.data.local.db
 
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -35,7 +33,7 @@ class AppPrefs @Inject constructor(
     }
 
     var locale: String
-        get() = sharedPreferences.getString(PREF_LOCALE, "ar")!!
+        get() = sharedPreferences.getString(PREF_LOCALE, "en")!!
         set(value) {
             sharedPreferences.edit().putString(PREF_LOCALE, value).apply()
         }

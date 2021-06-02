@@ -6,9 +6,10 @@ import android.app.NotificationManager
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Build
+import com.blongho.country_data.World
 import com.clap.android.R
-import com.clap.android.common.data.db.AppDatabase
-import com.clap.android.common.data.db.AppPrefs
+import com.clap.android.common.data.local.db.AppDatabase
+import com.clap.android.common.data.local.db.AppPrefs
 import com.clap.android.common.di.ApplicationScope
 import com.jakewharton.threetenabp.AndroidThreeTen
 import dagger.hilt.android.HiltAndroidApp
@@ -39,6 +40,8 @@ class MyApp : Application() {
         LocaleUtils.updateConfig(this, baseContext.resources.configuration)
 
         createNotificationChannel()
+
+        World.init(this)
     }
 
     fun changeLocalization(language: String) {

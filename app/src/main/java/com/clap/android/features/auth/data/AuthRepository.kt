@@ -1,6 +1,6 @@
 package com.clap.android.features.auth.data
 
-import com.clap.android.common.data.db.AppPrefs
+import com.clap.android.common.data.local.db.AppPrefs
 import javax.inject.Inject
 import javax.inject.Singleton
 

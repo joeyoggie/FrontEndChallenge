@@ -4,28 +4,37 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.clap.android.R
+import com.clap.android.common.ui.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_home.*
 
-class HomeFragment : Fragment() {
+@AndroidEntryPoint
+class HomeFragment : BaseFragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private val homeViewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
+        return inflater.inflate(R.layout.fragment_home, container, false)
+    }
+
+    override fun observeUI() {
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            tvTextHome.text = it
         })
-        return root
+    }
+
+    override fun setOnClickListeners() {
+        tvTextHome.setOnClickListener {
+            val action = HomeFragmentDirections.actionNavHomeFragmentToCurrenciesFragment()
+            findNavController().navigate(action)
+        }
     }
 }

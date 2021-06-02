@@ -1,18 +1,25 @@
-package com.clap.android.common.data.db
+package com.clap.android.common.data.local.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.clap.android.BuildConfig
-import com.clap.android.common.data.db.dao.UserDao
-import com.clap.android.common.data.db.entities.UserEntity
+import com.clap.android.common.data.local.db.dao.UserDao
+import com.clap.android.common.data.local.db.entities.UserEntity
+import com.clap.android.features.currency.data.local.db.dao.CurrencyDao
+import com.clap.android.features.currency.data.local.db.entities.CurrencyEntity
 
-@Database(entities = arrayOf(UserEntity::class), version = BuildConfig.VERSION_CODE, exportSchema = false)
+@Database(entities = arrayOf(
+    UserEntity::class,
+    CurrencyEntity::class),
+    version = BuildConfig.VERSION_CODE,
+    exportSchema = false)
 //TODO @TypeConverters(...)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
+    abstract fun currencyDao(): CurrencyDao
 
 
     companion object {

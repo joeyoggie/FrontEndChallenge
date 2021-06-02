@@ -3,7 +3,7 @@ package com.clap.android.common.utils
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import com.clap.android.common.data.db.AppPrefs
+import com.clap.android.common.data.local.db.AppPrefs
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton

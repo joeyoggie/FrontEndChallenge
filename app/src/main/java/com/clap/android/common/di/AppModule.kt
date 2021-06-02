@@ -3,8 +3,8 @@ package com.clap.android.common.di
 import android.app.Application
 import android.content.Context
 import androidx.work.WorkManager
-import com.clap.android.common.data.db.AppDatabase
-import com.clap.android.common.data.db.AppPrefs
+import com.clap.android.common.data.local.db.AppDatabase
+import com.clap.android.common.data.local.db.AppPrefs
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

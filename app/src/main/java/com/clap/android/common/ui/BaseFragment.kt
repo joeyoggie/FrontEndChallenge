@@ -32,11 +32,14 @@ abstract class BaseFragment : Fragment() {
 
         }
 
+        observeUI()
         setOnClickListeners()
 
         // by default no bottom or top margins
         addFragmentMargins()
     }
+
+    abstract fun observeUI()
 
     abstract fun setOnClickListeners()
 
@@ -52,7 +55,7 @@ abstract class BaseFragment : Fragment() {
     protected fun showSnackBar(message: String) {
         view?.let { v -> // make sure that view is not null to prevent crashes.
             val snackBar = Snackbar.make(v, message, Snackbar.LENGTH_SHORT)
-            snackBar.anchorView = requireActivity().nav_view
+            snackBar.anchorView = requireActivity().navViewBottom
             snackBar.show()
         }
     }
